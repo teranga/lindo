@@ -1,0 +1,8 @@
+dependencies {
+    project ':services-api'
+    project ':dto'
+
+    compile('org.springframework.data:spring-data-mongodb:1.6.2.RELEASE') {
+        exclude group: 'org.springframework'
+    }
+}

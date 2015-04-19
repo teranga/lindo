@@ -1,0 +1,23 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'spring-boot'
+
+dependencies {
+    compile project (':dto')
+    compile project (':account-repository')
+    compile project (':product-repository')
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("com.fasterxml.jackson.core:jackson-databind")
+    compile("org.springframework.hateoas:spring-hateoas")
+    compile("org.springframework.plugin:spring-plugin-core:1.1.0.RELEASE")
+    compile("com.jayway.jsonpath:json-path:0.9.1")
+}

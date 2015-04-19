@@ -1,0 +1,82 @@
+buildscript {
+    ext {
+        springBootVersion = '1.2.2.RELEASE'
+    }
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+}
+
+
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    apply plugin: 'idea'
+    apply plugin: 'maven'
+
+    repositories {
+        mavenCentral()
+    }
+
+    idea {
+        module {
+            downloadJavadoc = true
+            downloadSources = true
+        }
+    }
+}
+
+
+
+subprojects {
+
+    sourceSets {
+        integrationTest {
+
+            java {
+                srcDir 'src/integration/java'
+            }
+            resources {
+                srcDir 'src/integration/resources'
+            }
+            compileClasspath += sourceSets.test.compileClasspath
+            runtimeClasspath += sourceSets.test.runtimeClasspath
+        }
+    }
+
+
+    configurations {
+        integrationTestCompile.extendsFrom testCompile
+        integrationTestRuntime.extendsFrom testRuntime
+    }
+
+    sourceCompatibility = jdkVersion
+    targetCompatibility = jdkVersion
+
+//    task integrationTest(type: Test) {
+//        description = "run integration tests"
+//        testClassDir = sourceSets.integrationTest.testClassesDir
+//        classpath += sourceSets.integrationTest.runtimeClasspath
+//    }
+
+    dependencies {
+
+        compile "org.projectlombok:lombok:1.16.2"
+        compile "org.hibernate:hibernate-validator:5.1.3.Final"
+
+        compile group: 'org.slf4j', name:'slf4j-api', version: '1.+'
+        compile group: 'ch.qos.logback', name:'logback-classic', version: '1.+'
+        compile group: 'ch.qos.logback', name:'logback-core', version: '1.+'
+
+        testCompile ("junit:junit:4.+")
+        testCompile ('org.assertj:assertj-core:2.+')
+        testCompile ("org.mockito:mockito-core:1.+")
+        testCompile ("org.springframework:spring-test:4.1.6.RELEASE")
+    }
+
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}

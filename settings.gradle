@@ -1,0 +1,1 @@
+include 'services-api', 'dto', 'account-repository', 'product-repository', 'cassandra-common'
