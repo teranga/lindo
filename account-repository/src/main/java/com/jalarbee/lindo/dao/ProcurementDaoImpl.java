@@ -8,7 +8,6 @@ import org.springframework.data.cassandra.repository.MapId;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 import java.util.stream.Stream;
 

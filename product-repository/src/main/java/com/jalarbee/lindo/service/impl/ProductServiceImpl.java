@@ -4,6 +4,7 @@ import com.jalarbee.lindo.dao.ProductDao;
 import com.jalarbee.lindo.domain.Product;
 import com.jalarbee.lindo.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.cassandra.repository.support.BasicMapId;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +24,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Stream<Product> getCatalog(UUID organizationId, Pageable pageable) {
-        return StreamSupport.stream(productDao.findAll(Collections.singleton(organizationId)).spliterator(), false);
+        return StreamSupport.stream(productDao.findAll(Collections.singleton(BasicMapId.id("organizationId", organizationId))).spliterator(), false);
 
     }
 

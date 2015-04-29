@@ -77,7 +77,6 @@ nb-configuration.xml
 ### Eclipse template
 *.pydevproject
 .metadata
-.gradle
 bin/
 tmp/
 *.tmp
@@ -115,7 +114,6 @@ local.properties
 
 ### Gradle template
 .gradle
-build/
 
 # Ignore Gradle GUI config
 gradle-app.setting

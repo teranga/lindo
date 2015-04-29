@@ -1,15 +1,12 @@
 package com.jalarbee.lindo.dao;
 
-import com.datastax.driver.core.utils.UUIDs;
 import com.jalarbee.lindo.BaseProductTest;
-import com.jalarbee.lindo.BaseUnitTest;
 import com.jalarbee.lindo.domain.Product;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.math.BigDecimal;
-import java.util.Date;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * @author Abdoulaye Diallo
@@ -22,7 +19,9 @@ public class ProductDaoTest extends BaseProductTest {
     @Test
     public void saveProduct() {
         Product p = createDieselProduct();
-        productDao.save(p);
+        p = productDao.save(p);
+        assertThat(p).isNotNull();
+        assertThat(p.getName()).isEqualTo("Diesel");
     }
 
 }

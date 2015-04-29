@@ -35,13 +35,13 @@ public abstract class CassandraRepository<T, K extends Serializable> implements 
     }
 
     @Override
-    public T findOne(K mapId) {
-        return cassandraOps().selectOneById(entityClass, mapId);
+    public T findOne(K id) {
+        return cassandraOps().selectOneById(entityClass, id);
     }
 
     @Override
-    public boolean exists(K mapId) {
-        return cassandraOps().exists(entityClass, mapId);
+    public boolean exists(K id) {
+        return cassandraOps().exists(entityClass, id);
     }
 
     @Override
@@ -50,8 +50,8 @@ public abstract class CassandraRepository<T, K extends Serializable> implements 
     }
 
     @Override
-    public Iterable<T> findAll(Iterable<K> mapIds) {
-        return cassandraOps().selectBySimpleIds(entityClass, mapIds);
+    public Iterable<T> findAll(Iterable<K> ids) {
+        return cassandraOps().selectBySimpleIds(entityClass, ids);
     }
 
     @Override

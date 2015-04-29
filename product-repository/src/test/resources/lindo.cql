@@ -250,3 +250,7 @@ CREATE TABLE lindodb.organization (
     AND min_index_interval = 128
     AND read_repair_chance = 0.0
     AND speculative_retry = '99.0PERCENTILE';
+
+INSERT INTO lindodb.product(organizationid,category,id,name,registrationdate,retailprice,purchaseprice) VALUES (ad156350-e7e3-11e4-89d0-172029d0f437,'Fuel',ad158a60-e7e3-11e4-89d0-172029d0f437,'Diesel Clean',1429592577542,723.45,645.98);
+INSERT INTO lindodb.product(organizationid,category,id,name,registrationdate,retailprice,purchaseprice) VALUES (ad156350-e7e3-11e4-89d0-172029d0f437,'Food',ad158a60-e7e3-11e4-89d0-172029d0f438,'Rice',1429592577545,55.45,65.98);
+INSERT INTO lindodb.product(organizationid,category,id,name,registrationdate,retailprice,purchaseprice) VALUES (ad156350-e7e3-11e4-89d0-172029d0f437,'Fuel',ad158a60-e7e3-11e4-89d0-172029d0f439,'Super',1429592577555,623.45,695.99);

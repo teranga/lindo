@@ -15,6 +15,7 @@ dependencies {
     exclude group: 'com.datastax.cassandra'
 //    exclude group: 'org.apache.cassandra'
     exclude group: 'org.slf4j'
+    exclude group: 'junit'
   }
 
   compile 'org.apache.cassandra:cassandra-all:2.1.4'

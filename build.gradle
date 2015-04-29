@@ -1,7 +1,4 @@
 buildscript {
-    ext {
-        springBootVersion = '1.2.2.RELEASE'
-    }
     repositories {
         mavenLocal()
         mavenCentral()
@@ -69,7 +66,7 @@ subprojects {
         compile group: 'ch.qos.logback', name:'logback-classic', version: '1.+'
         compile group: 'ch.qos.logback', name:'logback-core', version: '1.+'
 
-        testCompile ("junit:junit:4.+")
+        testCompile ("junit:junit:4.12")
         testCompile ('org.assertj:assertj-core:2.+')
         testCompile ("org.mockito:mockito-core:1.+")
         testCompile ("org.springframework:spring-test:4.1.6.RELEASE")
